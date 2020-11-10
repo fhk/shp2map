@@ -1,27 +1,16 @@
-#Rechannel
+# SHP2Map
 
-A reverse supply chain api and app
-
-GS1 Hackathon
-
-Using EPICS
-
-##API
-
-TODO
-
-##Data
-
-TODO
-
+Send a ZIP containing SHP files and get a map
 
 ## Howto
 
 ```
-~$ curl -X POST http://localhost:5000/v1/select
+# create a new env
 
-~$ curl -X POST http://localhost:5000/v1/add --data '{"ProductName": 1234}' --header "Content-Type: application/json
+pip install -r requirements.txt
 
-~$ curl -X POST http://localhost:5000/v1/update --data '{"ProductId": "957359b6-b784-45d0-934c-5f6e9e2eaca1", "Hello": 123}' --header "Content-Type: application/json"
+python application.py &
 
+curl -X POST -F "file=@test_data/Airports.zip" -F api_key=super-secret-api-key -X POST localhost:5000/v1/shp2map -o test.html
 ```
+
